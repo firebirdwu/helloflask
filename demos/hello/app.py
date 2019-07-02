@@ -8,6 +8,7 @@
 import click
 from flask import Flask
 
+
 app = Flask(__name__)
 
 
@@ -36,3 +37,4 @@ def greet(name):
 def hello():
     """Just say hello."""
     click.echo('Hello, Human!')
+
