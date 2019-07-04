@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    Login
+{% endblock title %}
+{% block content %}
+    <div class="container col-md-offset-4 col-md-4" style="margin-top: 8%">
+        <form method="post">
+            {{ f_login.csrf_token }}
+            <div class="form-group">
+                <label for="username">{{ f_login.username.label }}</label>
+                {{ f_login.username(class='form-control',size=30,placeholder='Your Name') }}
+                {% if f_login.username.errors %}
+                    {% for message in f_login.username.errors %}
+                        <small class="has-error">{{ message }}</small><br>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group" style="margin: 10% 0 0 0">
+                <label for="password">{{ f_login.password.label }}</label>
+                {{ f_login.password(class='form-control',length=30,id='password',placeholder='Your PassWord') }}
+                {% if f_login.password.errors %}
+                    {% for message in f_login.password.errors %}
+                        <small class="has-error" style=" color:red">{{ message }}</small><br>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="checkbox">
+                <label>
+                    {{ f_login.remember() }} {{ f_login.remember.label }}
+                </label>
+            </div>
+            {{ f_login.submit(class='btn btn-primary text-center') }}
+        </form>
+    </div>
+{% endblock content %}
