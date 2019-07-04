@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}INDEX{% endblock %}
 {% block content %}
-    {% for key,values in messages.items() %}
-        {% for value in values %}
-            <ul>
-                <li>{{ key }}--{{ value }}</li>
-            </ul>
+    <table class="table table-bordered">
+        {% for key,values in messages.items() %}
+            {% for value in values %}
+                <tbody>
+                    <tr class="text-center">
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
+    </table>
 {% endblock %}

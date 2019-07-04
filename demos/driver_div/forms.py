@@ -5,7 +5,7 @@ from wtforms.validators import data_required, length
 
 
 class login_form(FlaskForm):
-    username = StringField('用户名：', validators=[data_required(), length(1, 8)])
-    password = PasswordField('密码:', validators=[data_required(), length(8, 20)])
-    remember = BooleanField()
+    username = StringField('用户名：', validators=[data_required(),length(5,10)])
+    password = PasswordField('密码:', validators=[data_required(),length(4,10)])
+    remember = BooleanField('记住')
     submit = SubmitField('提交')
